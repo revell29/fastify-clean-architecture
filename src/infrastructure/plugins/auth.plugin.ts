@@ -1,9 +1,9 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
 import fastifyJwt from 'fastify-jwt'
 import fastifyPlugin from 'fastify-plugin'
-import { responseSender } from '~/helpers/response.handler'
-import parseResponse from '~/helpers/response.parser'
-import config from '~/infrastructure/config/config'
+import config from '~/infrastructure/config/constants'
+import { responseSender } from '~/infrastructure/webserver/response.handler'
+import parseResponse from '~/infrastructure/webserver/response.parser'
 
 export default fastifyPlugin<FastifyInstance>(
   async (fastify) => {

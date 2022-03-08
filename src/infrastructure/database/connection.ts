@@ -1,7 +1,7 @@
 import Promise from 'bluebird'
 import pgp, { IDatabase } from 'pg-promise'
 import pg, { IClient } from 'pg-promise/typescript/pg-subset'
-import config from '~/infrastructure/config/config'
+import config from '~/infrastructure/config/constants'
 
 /**
  * Params for connection

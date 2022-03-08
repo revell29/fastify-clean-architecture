@@ -1,6 +1,6 @@
-import App from './app'
+import App from './infrastructure/webserver/server'
+import AuthPlugin from '~/infrastructure/plugins/auth.plugin'
 import AuthRoute from '~/interface/routes/auth.route'
-import AuthPlugin from '~/plugins/auth.plugin'
 
 export const app = new App({
   plugins: [AuthPlugin],

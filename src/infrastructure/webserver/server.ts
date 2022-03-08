@@ -1,5 +1,5 @@
 import fastify, { FastifyInstance } from 'fastify'
-import config from './infrastructure/config/config'
+import config from '../config/constants'
 
 class App {
   public app: FastifyInstance

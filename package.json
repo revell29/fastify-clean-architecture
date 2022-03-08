@@ -20,8 +20,10 @@
     "pino-pretty": "^7.3.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "cross-env NODE_ENV=development && nodemon -r tsconfig-paths/register ./src/server.ts",
+    "build": "swc src -d dist",
+    "build-dev": "npm run build && NODE_ENV=development node --inspect dist/server.js",
+    "dev": "nodemon --ext ts --exec \"npm run build-dev\"",
+    "start": "npm run build && NODE_ENV=production node dist/server.js",
     "eslint:check": "eslint src/**/*.ts",
     "eslint:fix": "eslint src/**/*.ts --fix",
     "prettier:check": "prettier --check 'src/**/*.ts'",
@@ -42,6 +44,8 @@
     "@babel/preset-typescript": "^7.16.7",
     "@commitlint/cli": "^16.0.1",
     "@commitlint/config-conventional": "^16.0.0",
+    "@swc/cli": "^0.1.55",
+    "@swc/core": "^1.2.151",
     "@types/bcrypt": "^5.0.0",
     "@types/config-yaml": "^1.1.1",
     "@types/jest": "^27.4.0",

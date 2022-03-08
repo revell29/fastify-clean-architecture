@@ -1,0 +1,23 @@
+{
+  "jsc": {
+    "target": "es2020",
+    "baseUrl": ".",
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false
+    },
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "loose": false,
+    "minify": {
+      "compress": true,
+      "mangle": true
+    }
+  },
+  "minify": true,
+  "sourceMaps": true,
+  "module": {
+    "type": "commonjs"
+  }
+}

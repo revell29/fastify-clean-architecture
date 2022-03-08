@@ -2,6 +2,18 @@
 
 The repository is template for starting project with fastify clean architecture.
 
+### Library
+
+- Fastify
+- Typescript
+- Husky & Lint Staged — Run scripts on your staged files before they are committed
+- Jest — Configured for unit testing
+- Prettier — Format your code consistently
+- Conventional Commit Lint — Make sure you & your teammates follow conventional commit
+- ESLint — Find and fix problems in your code, also will auto sort your imports
+- Absolute Import and Path Alias — Import components using `~/` prefix
+- SWC — Build tools
+
 ### How To Use
 
 - Clone this repository
@@ -12,39 +24,30 @@ The repository is template for starting project with fastify clean architecture.
 
 `npm run test`
 
-## Domain Driven Architectures
+---
 
-Software design is a very hard thing. From years, a trend has appeared to put the business logic, a.k.a. the (Business) Domain, and with it the User, in the heart of the overall system. Based on this concept, different architectural patterns was imaginated.
-
-One of the first and main ones was introduced by E. Evans in its Domain Driven Design approach.
-Based on it or in the same time, other applicative architectures appeared like Onion Architecture (by. J. Palermo), Hexagonal Architecture (by A. Cockburn) or Clean Architecture (by. R. Martin).
-
-This repository is an exploration of this type of architecture, mainly based on DDD and Clean Architecture, on a concrete and modern JavaScript application.
-
-### Project anatomy
+## Project anatomy
 
 ```
 app
- └ lib                              → Application sources
+ └ src                              → Application sources
     └ application                   → Application services layer
        └ security                   → Security tools interfaces (ex: AccessTokenManager.js, to generate and decode OAuth access token)
        └ use_cases                  → Application business rules
     └ domain                        → Enterprise core business layer such as domain model objects (Aggregates, Entities, Value Objects) and repository interfaces
     └ infrastructure                → Frameworks, drivers and tools such as Database, the Web Framework, mailing/logging/glue code etc.
        └ config                     → Application configuration files, modules and services
-          └ service-locator.js      → Module that manage service implementations by environment
-       └ orm                        → Database ORMs middleware (Sequelize for SQLite3 or PostgreSQL, Mongoose for MongoDB)
-          └ mongoose                → Mongoose client and schemas
-          └ sequelize               → Sequelize client and models
+          └ constant.ts             → All configuration (Database Hostname, App port, etc)
+       └ database                   → Database Connection (pg-promise)
+          └ connection.ts           → pg-promise config
        └ repositories               → Implementation of domain repository interfaces
-       └ security                   → Security tools implementations (ex: JwtAccessTokenManager)
        └ webserver                  → Fastify Web server configuration (server, routes, plugins, etc.)
-          └ server.ts               → Fastify.js server definition
+          └ server.ts               → Fastify server definition
     └ interfaces                    → Adapters and formatters for use cases and entities to external agency such as Database or the Web
-       └ controllers                → Hapi.js route handlers
-       └ routes                     → Hapi.js route definitions
+       └ controllers                → Fastify route handlers
+       └ routes                     → Fastify route definitions
        └ serializers                → Converter objects that transform outside objects (ex: HTTP request payload) to inside objects (ex: Use Case request object)
+    └ test                          → Source folder for unit or functional tests
+    └ server.ts                     → Main application entry point
  └ node_modules (generated)         → NPM dependencies
- └ test                             → Source folder for unit or functional tests
- └ index.js                         → Main application entry point
 ```

@@ -1,9 +1,9 @@
 {
-  "name": "towedd-api-v2",
+  "name": "fastify-clean-architecture",
   "version": "1.0.0",
-  "description": "A API for Towedd V2",
+  "description": "A simple API built with Fastify & Typescript that follows DDD + Clean Architecture principles",
   "main": "index.js",
-  "repository": "https://github.com/revell29/towedd-api-v2",
+  "repository": "https://github.com/revell29/fastify-clean-architecture",
   "author": "Apsyadira",
   "license": "MIT",
   "private": true,
